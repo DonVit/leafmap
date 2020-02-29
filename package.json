@@ -1,8 +1,9 @@
 {
   "name": "leafmap",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "",
   "main": "index.js",
+  "files":["dist"],
   "scripts": {
     "build": "webpack --config webpack.config.js",
     "start": "webpack-dev-server"
