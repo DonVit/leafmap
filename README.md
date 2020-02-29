@@ -6,7 +6,7 @@ Example of map based on Leaflet library
 
 Do changes and build `npm run build`
 
-Update version `npm version minor`
+Update version `npm version patch`
 
 Publish latest version `npm publish`
 
