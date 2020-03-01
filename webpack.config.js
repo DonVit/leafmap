@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const ManifestPlugin = require('webpack-manifest-plugin');
 
 module.exports = {
   entry: './src/index.js',
@@ -15,6 +16,7 @@ module.exports = {
     new CopyPlugin([
       { from: 'node_modules/leaflet/dist/images', to: 'images' },
     ]),
+    new ManifestPlugin({fileName: 'asset-manifest.json'})
   ],
   module: {
       rules: [
