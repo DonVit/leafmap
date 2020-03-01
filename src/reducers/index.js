@@ -1,8 +1,8 @@
 import {combineReducers} from 'redux';
-import UserReducer from './users';
+import MarkerReducer from './marker';
 import MapReducer from './map'
 
 export default combineReducers({
-  users: UserReducer,
+  marker: MarkerReducer,
   map: MapReducer
 })

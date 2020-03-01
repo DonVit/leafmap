@@ -1,19 +1,26 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+import { createStore, applyMiddleware, compose } from 'redux'
+import createSagaMiddleware from 'redux-saga'
+import { composeWithDevTools } from 'redux-devtools-extension';
 
-import './index.css'
+import './styles/index.css'
 import reducer from './reducers'
 import { CustomMap } from './components/map'
+import rootSaga from './saga/sagas'
 
-const mystore = createStore(
+const sagaMiddleware = createSagaMiddleware()
+
+const store = createStore(
   reducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  composeWithDevTools(applyMiddleware(sagaMiddleware))
 )
 
+sagaMiddleware.run(rootSaga)
+
 ReactDOM.render(
-  <Provider store={mystore}>
+  <Provider store={store}>
     <CustomMap />
   </Provider>,
   document.getElementById('mapid')
