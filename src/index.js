@@ -9,6 +9,7 @@ import './styles/index.css'
 import reducer from './reducers'
 import { CustomMap } from './components/map'
 import rootSaga from './saga/sagas'
+import { ViewPoi } from './components/viewpoi'
 
 const sagaMiddleware = createSagaMiddleware()
 
@@ -19,9 +20,22 @@ const store = createStore(
 
 sagaMiddleware.run(rootSaga)
 
+const zoom = document.getElementById('zoom').value
+const lat = document.getElementById('lat').value
+const lng = document.getElementById('lng').value
+
 ReactDOM.render(
   <Provider store={store}>
-    <CustomMap />
+    <ViewPoi zoom={zoom} lat={lat} lng={lng}/>
   </Provider>,
   document.getElementById('mapid')
 );
+
+
+
+// ReactDOM.render(
+//   <Provider store={store}>
+//     <CustomMap />
+//   </Provider>,
+//   document.getElementById('osmid1')
+// );

@@ -11,7 +11,7 @@ function* fetchUser(action) {
 }
 
 function* requestPosition() {
-    yield put({type: "MARKERS_FETCH_REQUEST"});
+   // yield put({type: "MARKERS_FETCH_REQUEST"});
 }
 
 function* takePositions() {
